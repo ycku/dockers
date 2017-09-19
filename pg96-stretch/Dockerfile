@@ -12,10 +12,10 @@ RUN apt-get update && apt-get -y -q install postgresql-9.6 postgresql-client-9.6
 
 USER postgres
 
-# RUN /etc/init.d/postgresql start \
-#     && psql --command "CREATE USER pguser WITH SUPERUSER PASSWORD 'pguser';" \
-#     && createdb -O pguser pgdb \
-#     && /etc/init.d/postgresql stop
+RUN /etc/init.d/postgresql start \
+    && psql --command "CREATE USER pguser WITH SUPERUSER PASSWORD 'pguser';" \
+    && createdb -O pguser pgdb \
+    && /etc/init.d/postgresql stop
 
 USER root
 
