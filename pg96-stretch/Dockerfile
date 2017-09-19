@@ -14,7 +14,8 @@ USER postgres
 
 RUN /etc/init.d/postgresql start \
     && psql --command "CREATE USER pguser WITH SUPERUSER PASSWORD 'pguser';" \
-    && createdb -O pguser pgdb
+    && createdb -O pguser pgdb \
+    && /etc/init.d/postgresql stop
 
 USER root
 
