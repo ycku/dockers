@@ -28,7 +28,7 @@ EXPOSE 5432
 RUN mkdir -p /var/run/postgresql && chown -R postgres /var/run/postgresql && chmod 2777 /var/run/postgresql
 
 # Add VOLUMEs to allow backup of config, logs and databases
-ENV PGDATA /var/lib/postgresql/data
+ENV PGDATA /var/lib/postgresql/
 RUN mkdir -p "$PGDATA" && chown -R postgres:postgres "$PGDATA" && chmod 777 "$PGDATA"
 VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 
